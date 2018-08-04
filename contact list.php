@@ -6,7 +6,6 @@
 		h1{
 			font-size:150%;
 			color:yellow;
-			text-align:center;
 		}
 	</style>
 </head>
@@ -27,13 +26,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT name, email, phone, message FROM lawsite.contact";
+$sql = "SELECT name, email, phone FROM lawsite.contact";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "name: " . $row["name"]. " - email: " . $row["email"]. " " . $row["phone"]. " ". $row["message"]. "<br>";
+        echo "name: " . $row["name"]. " - email: " . $row["email"]. " " . $row["phone"]. "<br>";
     }
 } else {
     echo "0 results";
